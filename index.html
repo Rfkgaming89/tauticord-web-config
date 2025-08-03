@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tauticord Config Editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Tauticord Configuration Editor</h1>
+        <p>Edit your settings and click "Generate YAML" to get the finished configuration.</p>
+    </header>
+
+    <main>
+        <form id="configForm">
+            <section class="config-section">
+                <h2>Tautulli Settings</h2>
+                <label for="tautulliURL">URL:</label>
+                <input type="text" id="tautulliURL" value="http://192.168.1.130:8181" required>
+
+                <label for="tautulliAPIKey">API Key:</label>
+                <input type="text" id="tautulliAPIKey" value="443e579a351547589ab441d798845978" required>
+
+                <label for="tautulliUseSelfSignedCert">Use Self-Signed Cert:</label>
+                <input type="checkbox" id="tautulliUseSelfSignedCert">
+
+                <label for="tautulliRefreshSeconds">Refresh Seconds:</label>
+                <input type="number" id="tautulliRefreshSeconds" value="15" min="5">
+
+                <label for="tautulliTerminateMessage">Terminate Message:</label>
+                <input type="text" id="tautulliTerminateMessage" value="Your stream has been terminated. Please contact the admin in the Discord.">
+            </section>
+
+            <section class="config-section">
+                <h2>Discord Settings</h2>
+                <label for="discordBotToken">Bot Token:</label>
+                <input type="text" id="discordBotToken" value="bot token" required>
+
+                <label for="discordServerID">Server ID:</label>
+                <input type="text" id="discordServerID" value="1087167829985480864" required>
+
+                <label for="discordAdminIDs">Admin IDs (comma-separated):</label>
+                <input type="text" id="discordAdminIDs" value="576244697782157342">
+
+                <label for="discordPostSummaryMessage">Post Summary Message:</label>
+                <input type="checkbox" id="discordPostSummaryMessage" checked>
+
+                <label for="discordChannelName">Channel Name:</label>
+                <input type="text" id="discordChannelName" value="Tautulli">
+
+                <label for="discordEnableTermination">Enable Termination:</label>
+                <input type="checkbox" id="discordEnableTermination" checked>
+
+                <label for="discordEnableSlashCommands">Enable Slash Commands:</label>
+                <input type="checkbox" id="discordEnableSlashCommands" checked>
+
+                <h3>Status Message</h3>
+                <label for="statusMessageEnable">Enable:</label>
+                <input type="checkbox" id="statusMessageEnable" checked>
+                <label for="statusMessageCustomMessage">Custom Message:</label>
+                <input type="text" id="statusMessageCustomMessage" value="">
+                <label for="statusMessageShowStreamCount">Show Stream Count:</label>
+                <input type="checkbox" id="statusMessageShowStreamCount" checked>
+            </section>
+
+            <section class="config-section">
+                <h2>Display Settings</h2>
+                <h3>Anonymization</h3>
+                <label for="anonymizeHideBandwidth">Hide Bandwidth:</label>
+                <input type="checkbox" id="anonymizeHideBandwidth">
+                <label for="anonymizeHideETA">Hide ETA:</label>
+                <input type="checkbox" id="anonymizeHideETA">
+                <label for="anonymizeHidePlatforms">Hide Platforms:</label>
+                <input type="checkbox" id="anonymizeHidePlatforms">
+                <label for="anonymizeHidePlayerNames">Hide Player Names:</label>
+                <input type="checkbox" id="anonymizeHidePlayerNames">
+                <label for="anonymizeHideProgress">Hide Progress:</label>
+                <input type="checkbox" id="anonymizeHideProgress">
+                <label for="anonymizeHideQuality">Hide Quality:</label>
+                <input type="checkbox" id="anonymizeHideQuality">
+                <label for="anonymizeHideTranscode">Hide Transcode:</label>
+                <input type="checkbox" id="anonymizeHideTranscode">
+                <label for="anonymizeHideUsernames">Hide Usernames:</label>
+                <input type="checkbox" id="anonymizeHideUsernames">
+
+                <label for="displayServerName">Server Name:</label>
+                <input type="text" id="displayServerName" value="The Backup Bandit">
+
+                <label for="displayThousandsSeparator">Thousands Separator:</label>
+                <input type="text" id="displayThousandsSeparator" value=",">
+
+                <label for="displayUseFriendlyNames">Use Friendly Names:</label>
+                <input type="checkbox" id="displayUseFriendlyNames">
+            </section>
+
+            <section class="config-section">
+                <h2>Extra Settings</h2>
+                <label for="extrasAllowAnalytics">Allow Analytics:</label>
+                <input type="checkbox" id="extrasAllowAnalytics">
+
+                <label for="extrasEnableUpdateReminders">Enable Update Reminders:</label>
+                <input type="checkbox" id="extrasEnableUpdateReminders" checked>
+            </section>
+
+            <section class="config-section">
+                <h2>Stats Settings</h2>
+
+                <section class="sub-section">
+                    <h3>Activity Stats</h3>
+                    <label for="activityEnable">Enable:</label>
+                    <input type="checkbox" id="activityEnable" checked>
+                    <label for="activityCategoryName">Category Name:</label>
+                    <input type="text" id="activityCategoryName" value="Plex-Stats-Home">
+
+                    <h4>Stat Types</h4>
+                    <label for="statBandwidthEnable">Bandwidth:</label>
+                    <input type="checkbox" id="statBandwidthEnable" checked>
+                    <label for="statLocalBandwidthEnable">Local Bandwidth:</label>
+                    <input type="checkbox" id="statLocalBandwidthEnable" checked>
+                    <label for="statRemoteBandwidthEnable">Remote Bandwidth:</label>
+                    <input type="checkbox" id="statRemoteBandwidthEnable">
+                    <label for="statPlexServerAvailabilityEnable">Plex Server Availability:</label>
+                    <input type="checkbox" id="statPlexServerAvailabilityEnable" checked>
+                    <label for="statStreamCountEnable">Stream Count:</label>
+                    <input type="checkbox" id="statStreamCountEnable" checked>
+                    <label for="statTranscodeCountEnable">Transcode Count:</label>
+                    <input type="checkbox" id="statTranscodeCountEnable" checked>
+                </section>
+
+                <section class="sub-section">
+                    <h3>Library Stats</h3>
+                    <label for="librariesEnable">Enable:</label>
+                    <input type="checkbox" id="librariesEnable" checked>
+                    <label for="librariesCategoryName">Category Name:</label>
+                    <input type="text" id="librariesCategoryName" value="Plex-Libraries-Home">
+                    <label for="librariesRefreshSeconds">Refresh Seconds:</label>
+                    <input type="number" id="librariesRefreshSeconds" value="3600">
+
+                    <h4>Libraries</h4>
+                    <div id="libraries-container">
+                        <div class="library-entry" data-library-name="Movies">
+                            <label for="libraryName_0">Library Name:</label>
+                            <input type="text" id="libraryName_0" value="Movies">
+                            <label for="libraryAlternateName_0">Alternate Name:</label>
+                            <input type="text" id="libraryAlternateName_0" value="">
+                            <label for="libraryID_0">ID:</label>
+                            <input type="number" id="libraryID_0" value="0">
+                            <h5>Metrics for Movies</h5>
+                            <label for="libraryAlbumsEnable_0">Albums:</label>
+                            <input type="checkbox" id="libraryAlbumsEnable_0">
+                            <label for="libraryArtistsEnable_0">Artists:</label>
+                            <input type="checkbox" id="libraryArtistsEnable_0">
+                            <label for="libraryEpisodesEnable_0">Episodes:</label>
+                            <input type="checkbox" id="libraryEpisodesEnable_0">
+                            <label for="libraryMoviesEnable_0">Movies:</label>
+                            <input type="checkbox" id="libraryMoviesEnable_0" checked>
+                            <label for="librarySeriesEnable_0">Series:</label>
+                            <input type="checkbox" id="librarySeriesEnable_0">
+                            <label for="libraryTracksEnable_0">Tracks:</label>
+                            <input type="checkbox" id="libraryTracksEnable_0">
+                            <label for="libraryRecentlyaddedEnable_0">Recently Added:</label>
+                            <input type="checkbox" id="libraryRecentlyaddedEnable_0">
+                            <label for="libraryRecentlyaddedHours_0">Recently Added Hours:</label>
+                            <input type="number" id="libraryRecentlyaddedHours_0" value="24">
+                        </div>
+                        <div class="library-entry" data-library-name="TV Shows">
+                            <label for="libraryName_1">Library Name:</label>
+                            <input type="text" id="libraryName_1" value="TV Shows">
+                            <label for="libraryAlternateName_1">Alternate Name:</label>
+                            <input type="text" id="libraryAlternateName_1" value="">
+                            <label for="libraryID_1">ID:</label>
+                            <input type="number" id="libraryID_1" value="0">
+                            <h5>Metrics for TV Shows</h5>
+                            <label for="libraryAlbumsEnable_1">Albums:</label>
+                            <input type="checkbox" id="libraryAlbumsEnable_1">
+                            <label for="libraryArtistsEnable_1">Artists:</label>
+                            <input type="checkbox" id="libraryArtistsEnable_1">
+                            <label for="libraryEpisodesEnable_1">Episodes:</label>
+                            <input type="checkbox" id="libraryEpisodesEnable_1">
+                            <label for="libraryMoviesEnable_1">Movies:</label>
+                            <input type="checkbox" id="libraryMoviesEnable_1">
+                            <label for="librarySeriesEnable_1">Series:</label>
+                            <input type="checkbox" id="librarySeriesEnable_1" checked>
+                            <label for="libraryTracksEnable_1">Tracks:</label>
+                            <input type="checkbox" id="libraryTracksEnable_1">
+                            <label for="libraryRecentlyaddedEnable_1">Recently Added:</label>
+                            <input type="checkbox" id="libraryRecentlyaddedEnable_1">
+                            <label for="libraryRecentlyaddedHours_1">Recently Added Hours:</label>
+                            <input type="number" id="libraryRecentlyaddedHours_1" value="24">
+                        </div>
+                    </div>
+                    <button type="button" id="add-library-button">Add Another Library</button>
+                    <label for="combinedLibraries">Combined Libraries (comma-separated):</label>
+                    <input type="text" id="combinedLibraries" value="">
+                </section>
+                
+                <section class="sub-section">
+                    <h3>Performance Stats</h3>
+                    <label for="performanceEnable">Enable:</label>
+                    <input type="checkbox" id="performanceEnable" checked>
+                    <label for="performanceCategoryName">Category Name:</label>
+                    <input type="text" id="performanceCategoryName" value="Performance-Home">
+
+                    <h4>Metrics</h4>
+                    <label for="metricCpuEnable">CPU:</label>
+                    <input type="checkbox" id="metricCpuEnable" checked>
+                    <label for="metricDiskspaceEnable">Diskspace:</label>
+                    <input type="checkbox" id="metricDiskspaceEnable" checked>
+                    <label for="metricMemoryEnable">Memory:</label>
+                    <input type="checkbox" id="metricMemoryEnable" checked>
+                    <label for="metricUsercountEnable">Usercount:</label>
+                    <input type="checkbox" id="metricUsercountEnable" checked>
+                </section>
+            </section>
+            
+            <button type="submit">Generate YAML</button>
+        </form>
+
+        <section class="output-section">
+            <h2>Generated YAML</h2>
+            <textarea id="yamlOutput" rows="20" readonly></textarea>
+            <button onclick="copyToClipboard()">Copy to Clipboard</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
